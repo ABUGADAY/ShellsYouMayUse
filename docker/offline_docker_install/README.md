@@ -1,15 +1,21 @@
 # Docker 离线安装使用说明
+
 ## 使用方式
+
 ### 安装
+
 执行命令
 我这里放置的是 20.10.3 离线包，也可以自行下载放到目录中
 [下载地址](https://download.docker.com/linux/static/stable/)
 daemon.json 里配置私服地址(都离线了总归要有内网私服吧)
+
 ```bash
 # sh install.sh docker-version.tgz
 sh install.sh docker-20.10.3.tgz
 ```
+
 运行结果
+
 ```bash
 [root@localhost offline_docker_install]# sh install.sh docker-20.10.3.tgz
 解压tar包...
@@ -32,12 +38,17 @@ docker/containerd
 docker安装成功...
 Docker version 20.10.3, build 48d30b5
 ```
+
 ### 卸载
+
 执行命令
+
 ```bash
 sh uninstall.sh
 ```
+
 运行结果
+
 ```bash
 [root@localhost offline_docker_install]# sh uninstall.sh 
 删除docker.service...
