@@ -1,0 +1,3 @@
+{
+    "insecure-registries": ["nexus.xxx.work:10010", "nexus.xxx.work:10011"]
+}
