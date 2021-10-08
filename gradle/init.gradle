@@ -1,0 +1,74 @@
+gradle.projectsLoaded {
+    rootProject.allprojects {
+        buildscript {
+            repositories {
+                def JCENTER_URL = 'https://maven.aliyun.com/repository/jcenter'
+                def GOOGLE_URL = 'https://maven.aliyun.com/repository/google'
+                def NEXUS_URL = 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+                all { ArtifactRepository repo ->
+                    if (repo instanceof MavenArtifactRepository) {
+                        def url = repo.url.toString()
+                        if (url.startsWith('https://jcenter.bintray.com/')) {
+                            project.logger.lifecycle "Repository ${repo.url} replaced by $JCENTER_URL."
+                            println("buildscript ${repo.url} replaced by $JCENTER_URL.")
+                            remove repo
+                        }
+                        else if (url.startsWith('https://dl.google.com/dl/android/maven2/')) {
+                            project.logger.lifecycle "Repository ${repo.url} replaced by $GOOGLE_URL."
+                            println("buildscript ${repo.url} replaced by $GOOGLE_URL.")
+                            remove repo
+                        }
+                        else if (url.startsWith('https://repo1.maven.org/maven2')) {
+                            project.logger.lifecycle "Repository ${repo.url} replaced by $REPOSITORY_URL."
+                            println("buildscript ${repo.url} replaced by $REPOSITORY_URL.")
+                            remove repo
+                        }
+                    }
+                }
+                jcenter {
+                    url JCENTER_URL
+                }
+                google {
+                    url GOOGLE_URL
+                }
+                maven {
+                    url NEXUS_URL
+                }
+            }
+        }
+        repositories {
+            def JCENTER_URL = 'https://maven.aliyun.com/repository/jcenter'
+            def GOOGLE_URL = 'https://maven.aliyun.com/repository/google'
+            def NEXUS_URL = 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+            all { ArtifactRepository repo ->
+                if (repo instanceof MavenArtifactRepository) {
+                    def url = repo.url.toString()
+                    if (url.startsWith('https://jcenter.bintray.com/')) {
+                        project.logger.lifecycle "Repository ${repo.url} replaced by $JCENTER_URL."
+                        println("buildscript ${repo.url} replaced by $JCENTER_URL.")
+                        remove repo
+                    }
+                    else if (url.startsWith('https://dl.google.com/dl/android/maven2/')) {
+                        project.logger.lifecycle "Repository ${repo.url} replaced by $GOOGLE_URL."
+                        println("buildscript ${repo.url} replaced by $GOOGLE_URL.")
+                        remove repo
+                    }
+                    else if (url.startsWith('https://repo1.maven.org/maven2')) {
+                        project.logger.lifecycle "Repository ${repo.url} replaced by $REPOSITORY_URL."
+                        println("buildscript ${repo.url} replaced by $REPOSITORY_URL.")
+                        remove repo
+                    }
+                }
+            }
+            jcenter {
+                url JCENTER_URL
+            }
+            google {
+                url GOOGLE_URL
+            }
+            maven {
+                url NEXUS_URL
+            }
+        }
+    }
+}
