@@ -1,7 +1,7 @@
 #按需选用
 #设置全局代理
 #http
-git config --global https.proxy 'http://127.0.0.1:1080'
+git config --global http.proxy 'http://127.0.0.1:1080'
 #https
 git config --global https.proxy 'https://127.0.0.1:1080'
 #使用socks5代理
